@@ -73,7 +73,7 @@ async function resetPassword() {
         var validPwd = passwordValidateRegEx.test(passwordInput.value); // will return true if password is valid otherwise false
 
         if (passwordInput.value==cnfrmPasswordInput.value && validPwd) {    
-        let res = await fetch(`http://localhost:8080/resetpassword`,{
+        let res = await fetch(`http://${url}:8080/resetpassword`,{
             method:"POST", 
             method: "PUT",
             headers: {
@@ -94,7 +94,16 @@ async function resetPassword() {
         }}else{
             alert("Password does not match!")
         }
+
     } catch (error){
         console.log(error);
     }
+}
+function myFunction() {
+  var x = document.getElementById("new_password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
 }
